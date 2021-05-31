@@ -14,7 +14,7 @@ import com.example.zmy.startproject_328zmy.model.Weather51Model;
 public class MainActivity extends AppCompatActivity implements WeatherListener,View.OnClickListener{
      private EditText etcityno;
     private Button  btnfind1,btnfind2;
-    private TextView tvcityname;
+    private TextView tvcityname,temp,wd,ws,sd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,11 @@ public class MainActivity extends AppCompatActivity implements WeatherListener,V
         btnfind1=(Button)findViewById(R.id.button);
         btnfind2=(Button)findViewById(R.id.button2);
         tvcityname=(TextView)findViewById(R.id.textView);
+        temp=(TextView)findViewById(R.id.textView4);
+        wd=(TextView)findViewById(R.id.textView6);
+        ws=(TextView)findViewById(R.id.textView8);
+        sd=(TextView)findViewById(R.id.textView10);
+
         btnfind1.setOnClickListener(this);
         btnfind2.setOnClickListener(this);
     }
@@ -37,8 +42,10 @@ public class MainActivity extends AppCompatActivity implements WeatherListener,V
         if (weatherInfo!=null)
         {
             tvcityname.setText(weatherInfo.getCity());
-            //tvcityname.setText(weatherInfo.getSD());
-            //tvcityname.setText(weatherInfo.getTemp());
+            temp.setText(weatherInfo.getTemp());
+            wd.setText(weatherInfo.getWD());
+            ws.setText(weatherInfo.getWS());
+            sd.setText(weatherInfo.getSD());
         }
         else
         {
